@@ -1,12 +1,12 @@
-local KEYVAL = "f4"
-
+local KEYVAL = "f7"
+Ess.DEBUG = true
 local Ess = _G.Ess
 if not (Ess and Ess.UI and Ess.UI.Menu) then
-    if Loader and Loader.Printf then Loader.Printf("[AiO Spawner] load the Essentials framework (dist/Ess.lua) first") end
+    if Loader and Loader.Printf then Loader.Printf("[AiO Spawner] load the Essentials Framework/Ess-Lib (1_Ess.lua) first") end
     return
 end
 
-local menu = Ess.UI.Menu{ title = "All-in-One Spawner by Ferdilanz", key = KEYVAL }
+local menu = Ess.UI.Menu{ title = "Ferdilanz' All-in-One SpawnMenu", key = KEYVAL }
 
 menu:category("Vehicles", function(aa)
         aa:category("Empty", function(aaa)
@@ -156,9 +156,9 @@ menu:category("Vehicles", function(aa)
                                 adm:entry("Spectrum Elite", function(ctx) ctx:spawn("W12 (Z12)", 10);        ctx:hint("SPAWNED") end)
                                 adm:entry("Spectrum GTX",   function(ctx) ctx:spawn("W12 (Z12) Racer", 10);        ctx:hint("SPAWNED") end)
                         end)
-                        ada:category("Möbius Variants", function(adn)
-                                adn:entry("Möbius",            function(ctx) ctx:spawn("L300", 10);         ctx:hint("SPAWNED") end)
-                                adn:entry("Möbius Sport",      function(ctx) ctx:spawn("L300 (Racing)", 10);         ctx:hint("SPAWNED") end)
+                        ada:category("MÃ¶bius Variants", function(adn)
+                                adn:entry("MÃ¶bius",            function(ctx) ctx:spawn("L300", 10);         ctx:hint("SPAWNED") end)
+                                adn:entry("MÃ¶bius Sport",      function(ctx) ctx:spawn("L300 (Racing)", 10);         ctx:hint("SPAWNED") end)
                         end)
                         ada:category("Summit Variants", function(ado)
                                 ado:entry("Summit SUV",             function(ctx) ctx:spawn("ridgeline", 10);        ctx:hint("SPAWNED") end)
@@ -350,7 +350,6 @@ menu:category("Vehicles", function(aa)
                         aja:entry("VZ 105mm Artillery",         function(ctx) ctx:spawn("Emplaced M101A1 (VZ)", 1);        ctx:hint("SPAWNED 1m AWAY") end)
                 end)
         end)
-
         aa:category("Fully Crewed", function(baa)
                 baa:category("Allied Nations", function(bba)
                         bba:entry("Ambassador Gunship",  function(ctx) ctx:spawn("AH1Z (full)", 15);         ctx:hint("SPAWNED") end)
@@ -531,9 +530,9 @@ menu:category("Vehicles", function(aa)
                                 bdm:entry("Spectrum Elite", function(ctx) ctx:spawn("W12 (Z12) (Driver)", 10);        ctx:hint("SPAWNED") end)
                                 bdm:entry("Spectrum GTX (Empty)",   function(ctx) ctx:spawn("W12 (Z12) Racer", 10);        ctx:hint("SPAWNED") end)
                         end)
-                        bda:category("Möbius Variants (w/Driver)", function(bdn)
-                                bdn:entry("Möbius",            function(ctx) ctx:spawn("L300 (Driver)", 10);         ctx:hint("SPAWNED") end)
-                                bdn:entry("Möbius Sport",      function(ctx) ctx:spawn("L300 (Racing) (Driver)", 10);         ctx:hint("SPAWNED") end)
+                        bda:category("MÃ¶bius Variants (w/Driver)", function(bdn)
+                                bdn:entry("MÃ¶bius",            function(ctx) ctx:spawn("L300 (Driver)", 10);         ctx:hint("SPAWNED") end)
+                                bdn:entry("MÃ¶bius Sport",      function(ctx) ctx:spawn("L300 (Racing) (Driver)", 10);         ctx:hint("SPAWNED") end)
                         end)
                         bda:category("Summit Variants (w/Driver)", function(bdo)
                                 bdo:entry("Summit SUV",             function(ctx) ctx:spawn("Ridgeline (Driver)", 10);        ctx:hint("SPAWNED") end)
@@ -732,7 +731,6 @@ menu:category("Vehicles", function(aa)
                         bja:entry("VZ 105mm Artillery",         function(ctx) ctx:spawn("Emplaced M101A1 (VZ) (Driver)", 1);        ctx:hint("SPAWNED 1m AWAY") end)
                 end)
         end)
-
         aa:category("Driver Only", function(caa)
                 caa:category("Allied Nations", function(cba)
                         cba:entry("Ambassador Gunship",  function(ctx) ctx:spawn("AH1Z (Driver)", 15);         ctx:hint("SPAWNED") end)
@@ -913,9 +911,9 @@ menu:category("Vehicles", function(aa)
                                 cdm:entry("Spectrum Elite", function(ctx) ctx:spawn("W12 (Z12) (Driver)", 10);        ctx:hint("SPAWNED") end)
                                 cdm:entry("Spectrum GTX (Empty)",   function(ctx) ctx:spawn("W12 (Z12) Racer", 10);        ctx:hint("SPAWNED") end)
                         end)
-                        cda:category("Möbius Variants", function(cdn)
-                                cdn:entry("Möbius",            function(ctx) ctx:spawn("L300 (Driver)", 10);         ctx:hint("SPAWNED") end)
-                                cdn:entry("Möbius Sport",      function(ctx) ctx:spawn("L300 (Racing) (Driver)", 10);         ctx:hint("SPAWNED") end)
+                        cda:category("MÃ¶bius Variants", function(cdn)
+                                cdn:entry("MÃ¶bius",            function(ctx) ctx:spawn("L300 (Driver)", 10);         ctx:hint("SPAWNED") end)
+                                cdn:entry("MÃ¶bius Sport",      function(ctx) ctx:spawn("L300 (Racing) (Driver)", 10);         ctx:hint("SPAWNED") end)
                         end)
                         cda:category("Summit Variants", function(cdo)
                                 cdo:entry("Summit SUV",             function(ctx) ctx:spawn("Ridgeline (Driver)", 10);        ctx:hint("SPAWNED") end)
@@ -1115,80 +1113,286 @@ menu:category("Vehicles", function(aa)
 end)
 
 menu:category("Pickups",function(ba)
-	ba:category("Player Pickups", function(ab)
-		ab:entry("Health", function(ctx) ctx:spawn("Health Pickup", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Ammunition", function(ctx) ctx:spawn("Ammo Pickup (Bullet)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Ammunition (Small)", function(ctx) ctx:spawn("Ammo Pickup (Small)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("C4 (x1)", function(ctx) ctx:spawn("Ammo Pickup (1xC4)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("C4 (Full)", function(ctx) ctx:spawn("Ammo Pickup (Full C4)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Grenades (x1)", function(ctx) ctx:spawn("Ammo Pickup (Single Grenade)", 0); ctx:hint("SPAWNED (INSTANT PICKUP)") end)
-		ab:entry("Grenades (Full)", function(ctx) ctx:spawn("Ammo Pickup (Grenades)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Rockets", function(ctx) ctx:spawn("Ammo Pickup (Rocket)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Fuel (x50)", function(ctx) ctx:spawn("Fuel Pickup (Large)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Fuel (x25)", function(ctx) ctx:spawn("Fuel Pickup (Small)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Cash ($25k Briefcase)", function(ctx) ctx:spawn("Cash (Case)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Cashwad ($5k)", function(ctx) ctx:spawn("Cash (Medium)", 2); ctx:hint("SPAWNED") end)
-		ab:entry("Cashwad ($1k)", function(ctx) ctx:spawn("Cash (Small)", 2); ctx:hint("SPAWNED") end)
+	ba:category("Player Pickups", function(baw)
+		baw:entry("Health", function(ctx) ctx:spawn("Health Pickup", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Ammunition", function(ctx) ctx:spawn("Ammo Pickup (Bullet)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Ammunition (Small)", function(ctx) ctx:spawn("Ammo Pickup (Small)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("C4 (x1)", function(ctx) ctx:spawn("Ammo Pickup (1xC4)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("C4 (Full)", function(ctx) ctx:spawn("Ammo Pickup (Full C4)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Grenades (x1)", function(ctx) ctx:spawn("Ammo Pickup (Single Grenade)", 0); ctx:hint("SPAWNED (INSTANT PICKUP)") end)
+		baw:entry("Grenades (Full)", function(ctx) ctx:spawn("Ammo Pickup (Grenades)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Rockets", function(ctx) ctx:spawn("Ammo Pickup (Rocket)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Fuel (x50)", function(ctx) ctx:spawn("Fuel Pickup (Large)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Fuel (x25)", function(ctx) ctx:spawn("Fuel Pickup (Small)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Cash ($25k Briefcase)", function(ctx) ctx:spawn("Cash (Case)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Cashwad ($5k)", function(ctx) ctx:spawn("Cash (Medium)", 2); ctx:hint("SPAWNED") end)
+		baw:entry("Cashwad ($1k)", function(ctx) ctx:spawn("Cash (Small)", 2); ctx:hint("SPAWNED") end)
 	end)
-	ba:category("Stealable Pallets", function(ac)
-		ac:entry("Cash", function(ctx) ctx:spawn("Cash (Large)", 2); ctx:hint("SPAWNED") end)
-		ac:category("Laptop Munitions", function(acb)
-			acb:entry("Carpet Bomb", function(ctx) ctx:spawn("Munitions (Carpet Bomb)", 2); ctx:hint("SPAWNED") end)
-			acb:entry("Cruise Missile", function(ctx) ctx:spawn("Munitions (Cruise Missile)", 2); ctx:hint("SPAWNED") end)
-			acb:entry("Smart Bomb", function(ctx) ctx:spawn("Munitions (Smart Bomb)", 2); ctx:hint("SPAWNED") end)
-			acb:entry("Strategic Missile Strike", function(ctx) ctx:spawn("Munitions (Strategic Missile)", 2); ctx:hint("SPAWNED") end)
+	ba:category("Stealable Pallets", function(bax)
+		bax:entry("Cash", function(ctx) ctx:spawn("Cash (Large)", 2); ctx:hint("SPAWNED") end)
+		bax:category("Laptop Munitions", function(bay)
+			bay:entry("Carpet Bomb", function(ctx) ctx:spawn("Munitions (Carpet Bomb)", 2); ctx:hint("SPAWNED") end)
+			bay:entry("Cruise Missile", function(ctx) ctx:spawn("Munitions (Cruise Missile)", 2); ctx:hint("SPAWNED") end)
+			bay:entry("Smart Bomb", function(ctx) ctx:spawn("Munitions (Smart Bomb)", 2); ctx:hint("SPAWNED") end)
+			bay:entry("Strategic Missile Strike", function(ctx) ctx:spawn("Munitions (Strategic Missile)", 2); ctx:hint("SPAWNED") end)
 		end)
-		ac:category("Pallet Munitions", function(aca)
-			aca:entry("Artillery", function(ctx) ctx:spawn("Munitions (Artillery)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Bombing Run", function(ctx) ctx:spawn("Munitions (Bombing Run)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Bunker Buster", function(ctx) ctx:spawn("Munitions (Bunker Buster)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Cluster Bomb", function(ctx) ctx:spawn("Munitions (Cluster Bomb)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Combat Air Patrol", function(ctx) ctx:spawn("Munitions (Combat Air Patrol)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Daisy Cutter", function(ctx) ctx:spawn("Munitions (Daisy Cutter)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Fuel-Air Bomb", function(ctx) ctx:spawn("Munitions (Fuel-Air Bomb)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Laser Guided Bomb", function(ctx) ctx:spawn("Munitions (Laser Guided Bomb)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("MOAB", function(ctx) ctx:spawn("Munitions (MOAB)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Rocket Artillery", function(ctx) ctx:spawn("Munitions (Rocket Artillery)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Surgical Strike", function(ctx) ctx:spawn("Munitions (Surgical Strike)", 2); ctx:hint("SPAWNED") end)
-			aca:entry("Tank Buster", function(ctx) ctx:spawn("Munitions (Tank Buster)", 2); ctx:hint("SPAWNED") end)
+		bax:category("Pallet Munitions", function(baz)
+			baz:entry("Artillery", function(ctx) ctx:spawn("Munitions (Artillery)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Bombing Run", function(ctx) ctx:spawn("Munitions (Bombing Run)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Bunker Buster", function(ctx) ctx:spawn("Munitions (Bunker Buster)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Cluster Bomb", function(ctx) ctx:spawn("Munitions (Cluster Bomb)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Combat Air Patrol", function(ctx) ctx:spawn("Munitions (Combat Air Patrol)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Daisy Cutter", function(ctx) ctx:spawn("Munitions (Daisy Cutter)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Fuel-Air Bomb", function(ctx) ctx:spawn("Munitions (Fuel-Air Bomb)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Laser Guided Bomb", function(ctx) ctx:spawn("Munitions (Laser Guided Bomb)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("MOAB", function(ctx) ctx:spawn("Munitions (MOAB)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Rocket Artillery", function(ctx) ctx:spawn("Munitions (Rocket Artillery)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Surgical Strike", function(ctx) ctx:spawn("Munitions (Surgical Strike)", 2); ctx:hint("SPAWNED") end)
+			baz:entry("Tank Buster", function(ctx) ctx:spawn("Munitions (Tank Buster)", 2); ctx:hint("SPAWNED") end)
 		end)
 	end)
 end)
 
+menu:category("NPCs",function(ca)
+        ca:category("Combatants", function(ck)
+                ck:category("Individuals", function(cka)
+                        cka:category("Allied Nations", function(ckb)
+                                ckb:entry("Officer", function(ctx)                ctx:spawn("Allied Officer", 5);              ctx:hint("SPAWNED") end)
+                                ckb:entry("Rifleman", function(ctx)               ctx:spawn("Allied Soldier", 5);              ctx:hint("SPAWNED") end)
+                                ckb:entry("Paratrooper", function(ctx)            ctx:spawn("Allied Airborne", 5);             ctx:hint("SPAWNED") end)
+                                ckb:entry("Paratrooper-AT", function(ctx)         ctx:spawn("Allied Airborne (AT)", 5);        ctx:hint("SPAWNED") end)
+                                ckb:entry("Para-Autorifleman", function(ctx)      ctx:spawn("Allied Airborne (Light MG)", 5);  ctx:hint("SPAWNED") end)
+                                ckb:entry("AA Specialist (Heavy)", function(ctx)  ctx:spawn("Allied Heavy (AA)", 5);           ctx:hint("SPAWNED") end)
+                                ckb:entry("AT Specialist (Heavy)", function(ctx)  ctx:spawn("Allied Heavy (AT Rocket)", 5);    ctx:hint("SPAWNED") end)
+                                ckb:entry("Autorifleman (Heavy)", function(ctx)   ctx:spawn("Allied Heavy (Light MG)", 5);     ctx:hint("SPAWNED") end)
+                                ckb:entry("Medic", function(ctx)                  ctx:spawn("Allied Medic", 5);                ctx:hint("SPAWNED") end)
+                                ckb:entry("Sailor (Gunslinger)", function(ctx)    ctx:spawn("Allied Sailor", 5);               ctx:hint("SPAWNED") end)
+                                ckb:entry("Sailor (AA Specialist)", function(ctx) ctx:spawn("Allied Sailor (AA)", 5);          ctx:hint("SPAWNED") end)
+                                ckb:entry("Sailor (Autorifleman)", function(ctx)  ctx:spawn("Allied Sailor (Light MG)", 5);    ctx:hint("SPAWNED") end)
+                                ckb:entry("Pilot", function(ctx)                  ctx:spawn("Allied Pilot", 5);                ctx:hint("SPAWNED") end)
+                        end)
+                        cka:category("China", function(ckc)
+                                ckc:entry("Officer", function(ctx)                   ctx:spawn("Chinese Officer", 5);             ctx:hint("SPAWNED") end)
+                                ckc:entry("Rifleman", function(ctx)                  ctx:spawn("Chinese Soldier", 5);             ctx:hint("SPAWNED") end)
+                                ckc:entry("AA Specialist (Heavy)", function(ctx)     ctx:spawn("Chinese Heavy (AA)", 5);          ctx:hint("SPAWNED") end)
+                                ckc:entry("AT Specialist (Heavy)", function(ctx)     ctx:spawn("Chinese Heavy (RPG)", 5);         ctx:hint("SPAWNED") end)
+                                ckc:entry("Autorifleman (Heavy)", function(ctx)      ctx:spawn("Chinese Heavy (Light MG)", 5);    ctx:hint("SPAWNED") end)
+                                ckc:entry("Chinese Elite", function(ctx)             ctx:spawn("Chinese Elite Soldier", 5);       ctx:hint("SPAWNED") end)
+                                ckc:entry("Tank Commander", function(ctx)            ctx:spawn("Chinese Tank Commander", 5);      ctx:hint("SPAWNED") end)
+                                ckc:entry("Sniper", function(ctx)                    ctx:spawn("Chinese Sniper", 5);              ctx:hint("SPAWNED") end)
+                                ckc:entry("Sailor (SMG)", function(ctx)              ctx:spawn("Chinese Sailor", 5);              ctx:hint("SPAWNED") end)
+                                ckc:entry("Sailor (AA Specialist)", function(ctx)    ctx:spawn("Chinese Sailor (AA)", 5);         ctx:hint("SPAWNED") end)
+                                ckc:entry("Sailor (Autorifleman)", function(ctx)     ctx:spawn("Chinese Sailor (Light MG)", 5);   ctx:hint("SPAWNED") end)
+                                ckc:entry("Helicopter Pilot", function(ctx)          ctx:spawn("Chinese Pilot B", 5);             ctx:hint("SPAWNED") end)
+                                ckc:entry("Jet Pilot", function(ctx)                 ctx:spawn("Chinese Pilot A", 5);             ctx:hint("SPAWNED") end)
+                                ckc:entry("Chinese Worker (Pistol)", function(ctx)      ctx:spawn("Chinese Worker", 5);              ctx:hint("SPAWNED") end)
+                                ckc:entry("Chinese Worker (Exercise/SMG)", function(ctx) ctx:spawn("Chinese Worker (Exercise)", 5);   ctx:hint("SPAWNED") end)
+                        end)
+                        cka:category("PLAV", function(ckd)
+                                ckd:entry("Officer (Male)", function(ctx)         ctx:spawn("Guerilla Officer", 5);            ctx:hint("SPAWNED") end)
+                                ckd:entry("Officer (Female)", function(ctx)       ctx:spawn("Guerilla Officer (Female)", 5);   ctx:hint("SPAWNED") end)
+                                ckd:entry("Rifleman", function(ctx)               ctx:spawn("Guerilla Soldier", 5);            ctx:hint("SPAWNED") end)
+                                ckd:entry("Riflewoman", function(ctx)             ctx:spawn("Guerilla Soldier (Female)", 5);   ctx:hint("SPAWNED") end)
+                                ckd:entry("CQB Specialist (Male)", function(ctx)  ctx:spawn("Guerilla Soldier B", 5);          ctx:hint("SPAWNED") end)
+                                ckd:entry("CQB Specialist (Female)", function(ctx) ctx:spawn("Guerilla Soldier B (Female)", 5); ctx:hint("SPAWNED") end)
+                                ckd:entry("CQB Specialist (Heavy)", function(ctx) ctx:spawn("Guerilla Heavy", 5);              ctx:hint("SPAWNED") end)
+                                ckd:entry("Autorifleman (Heavy)", function(ctx)   ctx:spawn("Guerilla Heavy (Light MG)", 5);   ctx:hint("SPAWNED") end)
+                                ckd:entry("AT Specialist (Heavy)", function(ctx)  ctx:spawn("Guerilla Heavy (RPG)", 5);        ctx:hint("SPAWNED") end)
+                                ckd:entry("PLAV Elite", function(ctx)             ctx:spawn("Guerilla Elite Soldier", 5);      ctx:hint("SPAWNED") end)
+                                ckd:entry("Tank Commander", function(ctx)         ctx:spawn("Guerilla Tank Commander", 5);     ctx:hint("SPAWNED") end)
+                        end)
+                        cka:category("Pirates", function(cke)
+                                cke:entry("Rifleman", function(ctx)                ctx:spawn("Pirate Officer", 5);               ctx:hint("SPAWNED") end)
+                                cke:entry("Machine Pistoleer (Male)", function(ctx) ctx:spawn("Pirate Thug", 5);                  ctx:hint("SPAWNED") end)
+                                cke:entry("Machine Pistoleer (Female)", function(ctx) ctx:spawn("Pirate Thug (Female)", 5);         ctx:hint("SPAWNED") end)
+                                cke:entry("AA Specialist (Male)", function(ctx)   ctx:spawn("Pirate Thug (AA)", 5);             ctx:hint("SPAWNED") end)
+                                cke:entry("AA Specialist (Female)", function(ctx) ctx:spawn("Pirate Thug (Female AA)", 5);      ctx:hint("SPAWNED") end)
+                                cke:entry("AT Specialist", function(ctx)          ctx:spawn("Pirate Thug (RPG)", 5);            ctx:hint("SPAWNED") end)
+                                cke:entry("CQB Specialist", function(ctx)         ctx:spawn("Pirate Thug (Shotgun)", 5);        ctx:hint("SPAWNED") end)
+                                cke:entry("Pirate Captive", function(ctx)         ctx:spawn("Pirate Prisoner", 5);              ctx:hint("SPAWNED") end)
+                                cke:entry("Pirate Sailor", function(ctx)          ctx:spawn("Pirate Sailor", 5);                ctx:hint("SPAWNED") end)
+                        end)
+                        cka:category("Universal Petroleum", function(ckg)
+                                ckg:entry("Officer", function(ctx)                  ctx:spawn("OC Officer", 5);                  ctx:hint("SPAWNED") end)
+                                ckg:entry("Rifleman (Helmet)", function(ctx)        ctx:spawn("OC Soldier", 5);                  ctx:hint("SPAWNED") end)
+                                ckg:entry("Rifleman (Ballcap)", function(ctx)       ctx:spawn("OC Soldier (Saunter)", 5);        ctx:hint("SPAWNED") end)
+                                ckg:entry("AT Specialist (Heavy)", function(ctx)    ctx:spawn("OC Heavy (RPG)", 5);              ctx:hint("SPAWNED") end)
+                                ckg:entry("Grenadier (Heavy)", function(ctx)        ctx:spawn("OC Heavy (Grenade Launcher)", 5); ctx:hint("SPAWNED") end)
+                                ckg:entry("Autorifleman (Heavy)", function(ctx)     ctx:spawn("OC Heavy (Light MG)", 5);         ctx:hint("SPAWNED") end)
+                                ckg:entry("Rifleman (Defender)", function(ctx)      ctx:spawn("OC Defender (Rifle)", 5);         ctx:hint("SPAWNED") end)
+                                ckg:entry("Autorifleman (Defender)", function(ctx)  ctx:spawn("OC Defender (MG)", 5);            ctx:hint("SPAWNED") end)
+                                ckg:entry("AA Specialist (Defender)", function(ctx) ctx:spawn("OC Defender (AA)", 5);            ctx:hint("SPAWNED") end)
+                                ckg:entry("AT Specialist (Defender)", function(ctx) ctx:spawn("OC Defender (AT)", 5);            ctx:hint("SPAWNED") end)
+                                ckg:entry("Sniper (Defender)", function(ctx)        ctx:spawn("OC Defender (Sniper)", 5);        ctx:hint("SPAWNED") end)
+                                ckg:entry("UP Elite", function(ctx)                 ctx:spawn("OC Elite", 5);                    ctx:hint("SPAWNED") end)
+                                ckg:entry("Designated Marksman", function(ctx)      ctx:spawn("OC Sniper", 5);                   ctx:hint("SPAWNED") end)
+                                ckg:entry("Tank Commander", function(ctx)           ctx:spawn("OC Tank Commander", 5);           ctx:hint("SPAWNED") end)
+                                ckg:entry("Pilot", function(ctx)                    ctx:spawn("OC Pilot", 5);                    ctx:hint("SPAWNED") end)
+                                ckg:entry("Prisoner", function(ctx)                 ctx:spawn("OC Prisoner", 5);                 ctx:hint("SPAWNED") end)
+                                ckg:entry("Executive (Armed)", function(ctx)        ctx:spawn("OC Executive (Armed)", 5);        ctx:hint("SPAWNED") end)
+                        end)
+                        cka:category("Venezuelan Army", function(ckh)
+                                ckh:entry("Captain", function(ctx)                          ctx:spawn("VZ Captain", 5);                  ctx:hint("SPAWNED") end)
+                                ckh:entry("Officer", function(ctx)                          ctx:spawn("VZ Officer", 5);                  ctx:hint("SPAWNED") end)
+                                ckh:entry("Rifleman", function(ctx)                         ctx:spawn("VZ Soldier (Mook)", 5);           ctx:hint("SPAWNED") end)
+                                ckh:entry("Rifleman-AT (Heavy)", function(ctx)              ctx:spawn("VZ Heavy (RPG + Rifle)", 5);      ctx:hint("SPAWNED") end)
+                                ckh:entry("AA Specialist (Heavy)", function(ctx)            ctx:spawn("VZ Heavy (AA Missile)", 5);       ctx:hint("SPAWNED") end)
+                                ckh:entry("AT Specialist (Heavy)", function(ctx)            ctx:spawn("VZ Heavy (RPG)", 5);              ctx:hint("SPAWNED") end)
+                                ckh:entry("Machinegunner (Heavy)", function(ctx)            ctx:spawn("VZ Heavy (Heavy MG)", 5);         ctx:hint("SPAWNED") end)
+                                ckh:entry("Autorifleman (Heavy)", function(ctx)             ctx:spawn("VZ Heavy (Light MG)", 5);         ctx:hint("SPAWNED") end)
+                                ckh:entry("Riot Specialist (Shotgun)", function(ctx)        ctx:spawn("VZ Riot Soldier", 5);             ctx:hint("SPAWNED") end)
+                                ckh:entry("Machine Pistoleer (Deathsquad)", function(ctx)   ctx:spawn("VZ Deathsquad (Mook)", 5);        ctx:hint("SPAWNED") end)
+                                ckh:entry("Autorifleman (Deathsquad)", function(ctx)        ctx:spawn("VZ Deathsquad (Mook) w/ LMG", 5); ctx:hint("SPAWNED") end)
+                                ckh:entry("AT Specialist (Deathsquad)", function(ctx)       ctx:spawn("VZ Deathsquad (Mook) w/ RPG", 5); ctx:hint("SPAWNED") end)
+                                ckh:entry("CQB Specialist (Deathsquad)", function(ctx)      ctx:spawn("VZ Deathsquad B", 5);             ctx:hint("SPAWNED") end)
+                                ckh:entry("Officer (CQB/Deathsquad)", function(ctx)         ctx:spawn("VZ Deathsquad B HVT", 5);         ctx:hint("SPAWNED") end)
+                                ckh:entry("Rifleman (Defender)", function(ctx)              ctx:spawn("VZ Defender (Rifle)", 5);         ctx:hint("SPAWNED") end)
+                                ckh:entry("Autorifleman (Defender)", function(ctx)          ctx:spawn("VZ Defender (MG)", 5);            ctx:hint("SPAWNED") end)
+                                ckh:entry("AA Specialist (Defender)", function(ctx)         ctx:spawn("VZ Defender (AA)", 5);            ctx:hint("SPAWNED") end)
+                                ckh:entry("AT Specialist (Defender)", function(ctx)         ctx:spawn("VZ Defender (AT)", 5);            ctx:hint("SPAWNED") end)
+                                ckh:entry("Sniper (Defender)", function(ctx)                ctx:spawn("VZ Defender (Sniper)", 5);        ctx:hint("SPAWNED") end)
+                                ckh:entry("Designated Marksman", function(ctx)              ctx:spawn("VZ Sniper", 5);                   ctx:hint("SPAWNED") end)
+                                ckh:entry("Tank Commander", function(ctx)                   ctx:spawn("VZ Tank Commander", 5);           ctx:hint("SPAWNED") end)
+                                ckh:entry("Miner's Union Boss", function(ctx)               ctx:spawn("VZ MinerUnionBoss", 5);           ctx:hint("SPAWNED") end)
+                                ckh:entry("UP Defector", function(ctx)                      ctx:spawn("VZ Oil Company Defector", 5);     ctx:hint("SPAWNED") end)
+                                ckh:entry("Guerilla Defector", function(ctx)                ctx:spawn("VZ Guerilla Defector", 5);        ctx:hint("SPAWNED") end)
+                                ckh:entry("Allied Defector", function(ctx)                  ctx:spawn("VZ Allied Defector", 5);          ctx:hint("SPAWNED") end)
+                                ckh:entry("Chinese Defector", function(ctx)                 ctx:spawn("VZ Chinese Defector", 5);         ctx:hint("SPAWNED") end)
+                                ckh:entry("Ramon Solano", function(ctx)                     ctx:spawn("Solano", 5);                      ctx:hint("SPAWNED") end)
+                                ckh:entry("Carlos Carmona", function(ctx)                   ctx:spawn("Carmona", 5);                     ctx:hint("SPAWNED") end)
+                                ckh:entry("Blanco", function(ctx)                           ctx:spawn("Blanco", 5);                      ctx:hint("SPAWNED") end)
+                        end)
+                end)
+				
+        end)
+        ca:category("Non-Combatants", function(cp)
+                cp:category("Allied Nations", function(cpa)
+                        cpa:entry("Hip-Hopper", function(ctx) ctx:spawn("Allied Soldier (Hip Hop Dancing)", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Bench-Presser", function(ctx) ctx:spawn("Allied Soldier (Bench Press)", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Prisoner", function(ctx) ctx:spawn("Allied Prisoner", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Worker A", function(ctx) ctx:spawn("Allied Worker", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Worker B", function(ctx) ctx:spawn("Allied Worker B", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Baseballer", function(ctx) ctx:spawn("Allied Worker (Baseball)", 5); ctx:hint("SPAWNED") end)
+                        cpa:entry("Golfer", function(ctx) ctx:spawn("Allied Worker (Golf)", 5); ctx:hint("SPAWNED") end)
+                        cpa:category("Contractees", function(cpaa)
+                                cpaa:entry("Phillip Joyce", function(ctx) ctx:spawn("Allied Boss", 5); ctx:hint("SPAWNED") end)
+                                cpaa:entry("'Wheelsy' Joyce", function(ctx) ctx:spawn("Allied Boss (Wheelchair)", 5); ctx:hint("SPAWNED") end)
+                        end)
+                end)
+                cp:category("China", function(cpb)
+                        cpb:entry("Prisoner", function(ctx) ctx:spawn("Chinese Prisoner", 5); ctx:hint("SPAWNED") end)
+                        cpb:entry("Chinese VIP", function(ctx) ctx:spawn("Chinese VIP", 5); ctx:hint("SPAWNED") end)
+                        cpb:entry("Gen. Zhou Peng", function(ctx) ctx:spawn("Chinese Boss", 5); ctx:hint("SPAWNED") end)
+                end)
+                cp:category("PLAV", function(cpc)
+                        cpc:entry("Prisoner", function(ctx) ctx:spawn("Guerilla Prisoner", 5); ctx:hint("SPAWNED") end)
+                        cpc:entry("Worker", function(ctx) ctx:spawn("Guerilla Worker", 5); ctx:hint("SPAWNED") end)
+                        cpc:entry("Marcela Acosta (Invincible)", function(ctx) ctx:spawn("Guerilla Boss", 5); ctx:hint("SPAWNED") end)
+                end)
+                cp:category("PMC", function(cpd)
+                        cpd:category("Mattias Nilsson", function(cpda)
+                                cpda:entry("Regular", function(ctx) ctx:spawn("Mattias", 5); ctx:hint("SPAWNED") end)
+                                cpda:entry("Formal", function(ctx) ctx:spawn("MattiasV2", 5); ctx:hint("SPAWNED") end)
+                                cpda:entry("Biker", function(ctx) ctx:spawn("MattiasV3", 5); ctx:hint("SPAWNED") end)
+                                cpda:entry("Chicken Suit", function(ctx) ctx:spawn("MattiasChickensuit", 5); ctx:hint("SPAWNED") end)
+                        end)
+                        cpd:category("Chris Jacobs", function(cpdb)
+                                cpdb:entry("Regular", function(ctx) ctx:spawn("Chris", 5); ctx:hint("SPAWNED") end)
+                                cpdb:entry("Vacation", function(ctx) ctx:spawn("ChrisV2", 5); ctx:hint("SPAWNED") end)
+                                cpdb:entry("Rambo", function(ctx) ctx:spawn("ChrisV3", 5); ctx:hint("SPAWNED") end)
+                                cpdb:entry("Chicken Suit", function(ctx) ctx:spawn("ChrisChickensuit", 5); ctx:hint("SPAWNED") end)
+                        end)
+                        cpd:category("Jennifer Mui", function(cpdc)
+                                cpdc:entry("Regular", function(ctx) ctx:spawn("Jen", 5); ctx:hint("SPAWNED") end)
+                                cpdc:entry("Sleeveless", function(ctx) ctx:spawn("JenV2", 5); ctx:hint("SPAWNED") end)
+                                cpdc:entry("Rebel", function(ctx) ctx:spawn("JenV3", 5); ctx:hint("SPAWNED") end)
+                                cpdc:entry("Catsuit", function(ctx) ctx:spawn("JenV4", 5); ctx:hint("SPAWNED") end)
+                                cpdc:entry("Tactical", function(ctx) ctx:spawn("JenV5", 5); ctx:hint("SPAWNED") end)
+                                cpdc:entry("Chicken Suit", function(ctx) ctx:spawn("JenChickensuit", 5); ctx:hint("SPAWNED") end)
+                        end)
+                        cpd:entry("Fiona Taylor (Jacket)", function(ctx) ctx:spawn("UnlockableFiona", 5); ctx:hint("SPAWNED") end)
+                        cpd:entry("Ewan Devlin", function(ctx) ctx:spawn("UnlockableEwan", 5); ctx:hint("SPAWNED") end)
+                        cpd:entry("Eva Navarro", function(ctx) ctx:spawn("UnlockableEva", 5); ctx:hint("SPAWNED") end)
+                        cpd:entry("Misha Milanich", function(ctx) ctx:spawn("UnlockableMisha", 5); ctx:hint("SPAWNED") end)
+                        cpd:category("PMC Unlockables", function(cpde)
+                                cpde:entry("Abel", function(ctx) ctx:spawn("UnlockableAbel", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Blanco", function(ctx) ctx:spawn("UnlockableBlanco", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Manuel Diaz", function(ctx) ctx:spawn("UnlockableCarlos", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Diablo", function(ctx) ctx:spawn("UnlockableDiablo", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Fire Protection Suit", function(ctx) ctx:spawn("UnlockableFire", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Devilbwoy", function(ctx) ctx:spawn("UnlockableGauge", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Ghost", function(ctx) ctx:spawn("UnlockableGhost", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Hoang", function(ctx) ctx:spawn("UnlockableHoang", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Vasquez", function(ctx) ctx:spawn("UnlockableVasquez", 5); ctx:hint("SPAWNED") end)
+                                cpde:entry("Wingman (Pilot)", function(ctx) ctx:spawn("UnlockableWingman", 5); ctx:hint("SPAWNED") end)
+                        end)
+                end)
+                cp:category("Pirates", function(cpe)
+                        cpe:entry("Sailor (Drunk)", function(ctx) ctx:spawn("Pirate Sailor (Drinker)", 5); ctx:hint("SPAWNED") end)
+                        cpe:entry("Vehicle Driver", function(ctx) ctx:spawn("Pirate Traffic", 5); ctx:hint("SPAWNED") end)
+                        cpe:entry("Worker", function(ctx) ctx:spawn("Pirate Worker", 5);  ctx:hint("SPAWNED") end)
+                        cpe:entry("Worker (Cellphone)", function(ctx) ctx:spawn("Pirate Worker (Cell Phone)", 5); ctx:hint("SPAWNED") end)
+                end)
+                cp:category("Universal Petroleum", function(cpf)
+                        cpf:entry("Bench Presser", function(ctx) ctx:spawn("OC Soldier (Bench Press)", 5); ctx:hint("SPAWNED") end)
+                        cpf:entry("Firefighter", function(ctx) ctx:spawn("OC Firefighter", 5); ctx:hint("SPAWNED") end)
+                        cpf:entry("Executive (Male)", function(ctx) ctx:spawn("OC Executive", 5); ctx:hint("SPAWNED") end)
+                        cpf:entry("Executive (Female)", function(ctx) ctx:spawn("OC Executive (Female)", 5); ctx:hint("SPAWNED") end)
+                        cpf:entry("Board Member", function(ctx) ctx:spawn("OC Board Member", 5); ctx:hint("SPAWNED") end)
+                        cpf:entry("Lorraine Rubin", function(ctx) ctx:spawn("OC Boss", 5); ctx:hint("SPAWNED") end)
+                        end)
+                cp:category("Civilians", function(cpg)
+                        cpg:entry("Female (Beach A)", function(ctx) ctx:spawn("Civ Beach A (Female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Female (Beach B)", function(ctx) ctx:spawn("Civ Beach B (Female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Female (Beach C)", function(ctx) ctx:spawn("Civ Beach C (Female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Female (Beach D)", function(ctx) ctx:spawn("Civ Beach D (Female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Male (Business A)", function(ctx) ctx:spawn("Civ Business (male)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Male (Business B)", function(ctx) ctx:spawn("Civ Business B (male)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Female (Casual)", function(ctx) ctx:spawn("Civ Casual (female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Female (Casual w/Hat)", function(ctx) ctx:spawn("Civ Casual with hat (female)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Male (Casual)", function(ctx) ctx:spawn("Civ Casual (male)", 5); ctx:hint("SPAWNED") end)
+                        cpg:entry("Male (Cowboy)", function(ctx) ctx:spawn("Civ Cowboy (male)", 5); ctx:hint("SPAWNED") end)
+                end)
+        end)
+end)
+
 menu:category("Weapons", function(da)
     da:category("Pistols", function(db)
-        db:entry("Pistol",            function(ctx) ctx:spawn("pistol", 2);         ctx:hint("SPAWNED") end)
-        db:entry("Covert Pistol",     function(ctx) ctx:spawn("Covert Pistol", 2);         ctx:hint("SPAWNED") end)
-        db:entry("Desert Eagle",      function(ctx) ctx:spawn("Pistol (silver)", 2);        ctx:hint("SPAWNED") end)
-        db:entry("Blanco's Revolver", function(ctx) ctx:spawn("Hunting Pistol", 2);        ctx:hint("SPAWNED") end)
+        db:entry("Default Pistol", function(ctx)    ctx:spawn("pistol", 2);          ctx:hint("SPAWNED") end)
+        db:entry("Allied Pistol", function(ctx)     ctx:spawn("Pistol (AL)", 2);     ctx:hint("SPAWNED") end)
+        db:entry("Chinese Pistol", function(ctx)    ctx:spawn("Pistol (CH)", 2);     ctx:hint("SPAWNED") end)
+        db:entry("Guerilla Pistol", function(ctx)   ctx:spawn("Pistol (GR)", 2);     ctx:hint("SPAWNED") end)
+        db:entry("Covert Pistol", function(ctx)     ctx:spawn("Covert Pistol", 2);   ctx:hint("SPAWNED") end)
+        db:entry("Desert Eagle", function(ctx)      ctx:spawn("Pistol (silver)", 2); ctx:hint("SPAWNED") end)
+        db:entry("Blanco's Revolver", function(ctx) ctx:spawn("Hunting Pistol", 2);  ctx:hint("SPAWNED") end)
     end)
     da:category("Machine Pistols", function(dc)
-        dc:entry("Micro Uzi",        function(ctx) ctx:spawn("Machine Pistol (Uzi)", 2);         ctx:hint("SPAWNED") end)
-        dc:entry("TMP",              function(ctx) ctx:spawn("Machine Pistol (TMP)", 2);         ctx:hint("SPAWNED") end)
-        dc:entry("MAC-10",           function(ctx) ctx:spawn("machine pistol", 2);        ctx:hint("SPAWNED") end)
-        dc:entry("PDW (PP2000)",     function(ctx) ctx:spawn("Machine Pistol (PP2000)", 2);        ctx:hint("SPAWNED") end)
+        dc:entry("Micro Uzi", function(ctx)     ctx:spawn("Machine Pistol (Uzi)", 2);    ctx:hint("SPAWNED") end)
+        dc:entry("TMP", function(ctx)           ctx:spawn("Machine Pistol (TMP)", 2);    ctx:hint("SPAWNED") end)
+        dc:entry("MAC-10", function(ctx)        ctx:spawn("machine pistol", 2);          ctx:hint("SPAWNED") end)
+        dc:entry("PDW (PP2000)", function(ctx)  ctx:spawn("Machine Pistol (PP2000)", 2); ctx:hint("SPAWNED") end)
     end)
     da:category("Assault Rifles", function(dd)
-        dd:entry("AKM",    function(ctx) ctx:spawn("assault rifle", 2);         ctx:hint("SPAWNED") end)
-        dd:entry("AK-103", function(ctx) ctx:spawn("assault rifle (vz)", 2);         ctx:hint("SPAWNED") end)
-        dd:entry("QBZ-95", function(ctx) ctx:spawn("Bullpup Rifle", 2);        ctx:hint("SPAWNED") end)
-        dd:entry("XM8",    function(ctx) ctx:spawn("combat rifle", 2);        ctx:hint("SPAWNED") end)
-        dd:entry("M4A1",   function(ctx) ctx:spawn("carbine", 2);         ctx:hint("SPAWNED") end)
+        dd:entry("AKM", function(ctx)    ctx:spawn("assault rifle", 2);      ctx:hint("SPAWNED") end)
+        dd:entry("AK-103", function(ctx) ctx:spawn("assault rifle (vz)", 2); ctx:hint("SPAWNED") end)
+        dd:entry("QBZ-95", function(ctx) ctx:spawn("Bullpup Rifle", 2);      ctx:hint("SPAWNED") end)
+        dd:entry("XM8", function(ctx)    ctx:spawn("combat rifle", 2);       ctx:hint("SPAWNED") end)
+        dd:entry("M4A1", function(ctx)   ctx:spawn("carbine", 2);            ctx:hint("SPAWNED") end)
     end)
     da:category("Automatic Rifles", function(de)
-        de:entry("M249 SAW",     function(ctx) ctx:spawn("Light MG", 2);         ctx:hint("SPAWNED") end)
-        de:entry("RPK",          function(ctx) ctx:spawn("Automatic Rifle", 2);         ctx:hint("SPAWNED") end)
-        de:entry("QJY-88 LMG",   function(ctx) ctx:spawn("Automatic Rifle (Chinese)", 2);         ctx:hint("SPAWNED") end)
+        de:entry("M249 SAW",     function(ctx) ctx:spawn("Light MG", 2); ctx:hint("SPAWNED") end)
+        de:entry("RPK",          function(ctx) ctx:spawn("Automatic Rifle", 2); ctx:hint("SPAWNED") end)
+        de:entry("QJY-88 LMG",   function(ctx) ctx:spawn("Automatic Rifle (Chinese)", 2); ctx:hint("SPAWNED") end)
     end)
     da:category("SMGs", function(df)
-        df:entry("CF-05", function(ctx) ctx:spawn("sMG", 2);         ctx:hint("SPAWNED") end)
-        df:entry("MP5SD", function(ctx) ctx:spawn("Covert SMG", 2);         ctx:hint("SPAWNED") end)
+        df:entry("CF-05", function(ctx) ctx:spawn("SMG", 2); ctx:hint("SPAWNED") end)
+        df:entry("MP5SD", function(ctx) ctx:spawn("Covert SMG", 2); ctx:hint("SPAWNED") end)
     end)
     da:category("Sniper Rifles", function(dg)
-        dg:entry("SVD",              function(ctx) ctx:spawn("Sniper Rifle (SVD)", 2);         ctx:hint("SPAWNED") end)
-        dg:entry("QBU-88",           function(ctx) ctx:spawn("Sniper Rifle", 2);         ctx:hint("SPAWNED") end)
-        dg:entry("Barrett M95 AMR",  function(ctx) ctx:spawn("Anti-Material Rifle", 2);         ctx:hint("SPAWNED") end)
-        dg:entry("KSVK 12.7 AMR",    function(ctx) ctx:spawn("Anti-Material Rifle (KSVK)", 2);         ctx:hint("SPAWNED") end)
+        dg:entry("SVD",              function(ctx) ctx:spawn("Sniper Rifle (SVD)", 2); ctx:hint("SPAWNED") end)
+        dg:entry("QBU-88",           function(ctx) ctx:spawn("Sniper Rifle", 2); ctx:hint("SPAWNED") end)
+        dg:entry("Barrett M95 AMR",  function(ctx) ctx:spawn("Anti-Material Rifle", 2); ctx:hint("SPAWNED") end)
+        dg:entry("KSVK 12.7 AMR",    function(ctx) ctx:spawn("Anti-Material Rifle (KSVK)", 2); ctx:hint("SPAWNED") end)
     end)
     da:entry("Shotgun", function(ctx) ctx:spawn("Shotgun",2); ctx:hint("SPAWNED") end)
     da:category("Heavy", function(dh)
@@ -1205,53 +1409,52 @@ menu:category("Weapons", function(da)
         di:entry("Portable Minigun 1800rpm",     function(ctx) ctx:spawn("minigun 1800", 2);         ctx:hint("SPAWNED") end)
         di:entry("Portable Autocannon 1000rpm",  function(ctx) ctx:spawn("minigun 1000", 2);         ctx:hint("SPAWNED") end)
         di:entry("Riot Gun (Gas Grenades)",      function(ctx) ctx:spawn("Riot Gun", 2);         ctx:hint("SPAWNED") end)
-        di:entry("Coilgun",                      function(ctx) ctx:spawn("Coilgun", 2);         ctx:hint("SPAWNED") end)
+        di:entry("SR-25Million Coilgun",         function(ctx) ctx:spawn("Coilgun", 2);         ctx:hint("SPAWNED") end)
         di:entry("Cheat RPG",                    function(ctx) ctx:spawn("Cheat RPG", 2);         ctx:hint("SPAWNED") end)
     end)
 end)
 
-menu:category("Supply Drops", function(fa)
-    fa:entry("Medical Supply Drop", function(ctx) ctx:spawn("Supply Drop (Health)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Ammo Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Ammo)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Light MG Supply Drop", function(ctx) ctx:spawn("Supply Drop (Light MG) (AL)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Grenade Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Grenade)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Medical Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Health)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Supply Drop", function(ctx) ctx:spawn("Supply Drop (Allied)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Anti-Materiel Drop", function(ctx) ctx:spawn("Supply Drop (AM AL)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Allied Anti-Tank Launcher Drop", function(ctx) ctx:spawn("Supply Drop (AT AL)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Anti-Air Missile Supply Drop", function(ctx) ctx:spawn("Supply Drop (AA)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Chinese Supply Drop", function(ctx) ctx:spawn("Supply Drop (Chinese)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Chinese Anti-Materiel Drop", function(ctx) ctx:spawn("Supply Drop (AM CH)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Chinese Fuel-Air RPG Drop", function(ctx) ctx:spawn("Supply Drop (AT CH)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Chinese Sniper Supply Drop", function(ctx) ctx:spawn("Supply Drop (Sniper CH)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Blanco's Supply Drop", function(ctx) ctx:spawn("Supply Drop (Blanco)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("C4 Supply Drop", function(ctx) ctx:spawn("Supply Drop (C4)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Covert Supply Drop", function(ctx) ctx:spawn("Supply Drop (Covert)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("CQB Supply Drop", function(ctx) ctx:spawn("Supply Drop (CQB)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Fiona's Favorites", function(ctx) ctx:spawn("Supply Drop (FIona)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Russian Sniper Supply Drop", function(ctx) ctx:spawn("Supply Drop (Sniper RU)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("PLAV Sniper Rifle Drop", function(ctx) ctx:spawn("Supply Drop (Guerilla) (Sniper)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("PLAV Supply Drop", function(ctx) ctx:spawn("Supply Drop (Guerilla)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("Pirate Supply Drop", function(ctx) ctx:spawn("Supply Drop (Pirate)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("RPG Supply Drop", function(ctx) ctx:spawn("Supply Drop (RPG)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("UP Supply Drop", function(ctx) ctx:spawn("Supply Drop (OC)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("UP Grenade Launcher Drop", function(ctx) ctx:spawn("Supply Drop (GL)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("UP Sniper Rifle Drop", function(ctx) ctx:spawn("Supply Drop (Sniper)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("UP Light MG Supply Drop", function(ctx) ctx:spawn("Supply Drop (Light MG)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("VZ Supply Drop", function(ctx) ctx:spawn("Supply Drop (VZ)", 5); ctx:hint("SPAWNED") end)
-    fa:entry("VZ C4 Supply Drop", function(ctx) ctx:spawn("Supply Drop (C4) (VZ)", 5); ctx:hint("SPAWNED") end)
-    fa:category("Special Supply Drops", function(faa)
-        faa:entry("Empty Supply Drop", function(ctx) ctx:spawn("Supply Drop (Base)", 5); ctx:hint("SPAWNED") end)
-        faa:entry("Blueprint (Treasure) Supply Drop", function(ctx) ctx:spawn("Supply Drop (Blueprints)", 5); ctx:hint("SPAWNED") end)
-        faa:entry("Treasure (Blueprint) Supply Drop", function(ctx) ctx:spawn("Supply Drop (Treasure)", 5); ctx:hint("SPAWNED") end)
+menu:category("Supply Drops", function(ea)
+    ea:entry("Medical Supply Drop", function(ctx) ctx:spawn("Supply Drop (Health)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Ammo Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Ammo)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Light MG Supply Drop", function(ctx) ctx:spawn("Supply Drop (Light MG) (AL)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Grenade Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Grenade)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Medical Supply Drop", function(ctx) ctx:spawn("Supply Drop (AL Health)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Supply Drop", function(ctx) ctx:spawn("Supply Drop (Allied)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Anti-Materiel Drop", function(ctx) ctx:spawn("Supply Drop (AM AL)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Allied Anti-Tank Launcher Drop", function(ctx) ctx:spawn("Supply Drop (AT AL)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Anti-Air Missile Supply Drop", function(ctx) ctx:spawn("Supply Drop (AA)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Chinese Supply Drop", function(ctx) ctx:spawn("Supply Drop (Chinese)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Chinese Anti-Materiel Drop", function(ctx) ctx:spawn("Supply Drop (AM CH)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Chinese Fuel-Air RPG Drop", function(ctx) ctx:spawn("Supply Drop (AT CH)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Chinese Sniper Supply Drop", function(ctx) ctx:spawn("Supply Drop (Sniper CH)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Blanco's Supply Drop", function(ctx) ctx:spawn("Supply Drop (Blanco)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("C4 Supply Drop", function(ctx) ctx:spawn("Supply Drop (C4)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Covert Supply Drop", function(ctx) ctx:spawn("Supply Drop (Covert)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("CQB Supply Drop", function(ctx) ctx:spawn("Supply Drop (CQB)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Fiona's Favorites", function(ctx) ctx:spawn("Supply Drop (FIona)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Russian Sniper Supply Drop", function(ctx) ctx:spawn("Supply Drop (Sniper RU)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("PLAV Sniper Rifle Drop", function(ctx) ctx:spawn("Supply Drop (Guerilla) (Sniper)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("PLAV Supply Drop", function(ctx) ctx:spawn("Supply Drop (Guerilla)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("Pirate Supply Drop", function(ctx) ctx:spawn("Supply Drop (Pirate)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("RPG Supply Drop", function(ctx) ctx:spawn("Supply Drop (RPG)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("UP Supply Drop", function(ctx) ctx:spawn("Supply Drop (OC)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("UP Grenade Launcher Drop", function(ctx) ctx:spawn("Supply Drop (GL)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("UP Sniper Rifle Drop", function(ctx) ctx:spawn("Supply Drop (Sniper)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("UP Light MG Supply Drop", function(ctx) ctx:spawn("Supply Drop (Light MG)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("VZ Supply Drop", function(ctx) ctx:spawn("Supply Drop (VZ)", 5); ctx:hint("SPAWNED") end)
+    ea:entry("VZ C4 Supply Drop", function(ctx) ctx:spawn("Supply Drop (C4) (VZ)", 5); ctx:hint("SPAWNED") end)
+    ea:category("Special Supply Drops", function(eaa)
+        eaa:entry("Empty Supply Drop", function(ctx) ctx:spawn("Supply Drop (Base)", 5); ctx:hint("SPAWNED") end)
+        eaa:entry("Blueprint (Treasure) Supply Drop", function(ctx) ctx:spawn("Supply Drop (Blueprints)", 5); ctx:hint("SPAWNED") end)
+        eaa:entry("Treasure (Blueprint) Supply Drop", function(ctx) ctx:spawn("Supply Drop (Treasure)", 5); ctx:hint("SPAWNED") end)
     end)
 end)
 
--- ============================================================
--- ORDNANCE DROPS
--- ============================================================
-
-
+-- --------------------------------------------------------------
+-- Paste menu:categories from other authors below this line
+-- --------------------------------------------------------------
+-- ORDNANCE DROPS by Badga666
 local ORDD_TOKEN = 0
 
 
@@ -1260,18 +1463,14 @@ local CLEAR_SETTLE_TIME = 0.12
 local DESIGNATOR_SETTLE_TIME = 0.25
 
 
-local FAB_HEIGHT_OFFSET = 5
+local FAB_HEIGHT_OFFSET = 0
 local FAB_CLOUD_ROLL_DEG = 0
 
 
 local scheduleSeq = 0
-
-
 -- ============================================================
 -- BASICS
 -- ============================================================
-
-
 local function log(msg)
   pcall(function()
     if Loader and Loader.Printf then
@@ -1279,7 +1478,6 @@ local function log(msg)
     end
   end)
 end
-
 
 local function toast(msg)
   local ok = pcall(function()
@@ -1293,7 +1491,6 @@ local function toast(msg)
   end
 end
 
-
 local function lastError(label)
   pcall(function()
     if Ess and Ess.lastError then
@@ -1304,7 +1501,6 @@ local function lastError(label)
     end
   end)
 end
-
 
 local function safe(fn, ...)
   if type(fn) ~= "function" then
@@ -1319,7 +1515,6 @@ local function safe(fn, ...)
   return ok, res
 end
 
-
 local function apiCall(tbl, method, ...)
   local fn = type(tbl) == "table" and tbl[method] or nil
 
@@ -1329,7 +1524,6 @@ local function apiCall(tbl, method, ...)
 
   return safe(fn, ...)
 end
-
 
 local function after(seconds, fn)
   local function run()
@@ -1357,7 +1551,6 @@ local function after(seconds, fn)
   end
 end
 
-
 local function localPlayer()
   local ok, p = pcall(function()
     if Player and type(Player.GetLocalPlayer) == "function" then
@@ -1384,7 +1577,6 @@ local function localPlayer()
   return nil
 end
 
-
 local function flushInput()
   pcall(function()
     if Ess and Ess.Input and type(Ess.Input.clear) == "function" then
@@ -1392,7 +1584,6 @@ local function flushInput()
     end
   end)
 end
-
 
 local function inputBurst()
   pcall(function()
@@ -1413,7 +1604,6 @@ local function inputBurst()
     flushInput()
   end)
 end
-
 
 local function closeUI()
   pcall(function()
@@ -1437,7 +1627,6 @@ local function closeUI()
   flushInput()
 end
 
-
 local function clearDesignatorOnce()
   local p = localPlayer()
   if not p then
@@ -1449,7 +1638,6 @@ local function clearDesignatorOnce()
 
   flushInput()
 end
-
 
 local function clearDesignator(token)
   clearDesignatorOnce()
@@ -1467,7 +1655,6 @@ local function clearDesignator(token)
   end)
 end
 
-
 local function preloadLaser()
   pcall(function()
     if Pg and type(Pg.LoadAsset) == "function" then
@@ -1475,7 +1662,6 @@ local function preloadLaser()
     end
   end)
 end
-
 
 local function getViewYaw()
   local ok, y = pcall(function()
@@ -1505,13 +1691,9 @@ local function getViewYaw()
 
   return 0
 end
-
-
 -- ============================================================
 -- FX
 -- ============================================================
-
-
 local function fx(proto, x, y, z)
   if Ess and Ess.Easy and Ess.Easy.Spawn and type(Ess.Easy.Spawn.fx) == "function" then
     local ok = pcall(function()
@@ -1536,7 +1718,6 @@ local function fx(proto, x, y, z)
 
   return ok
 end
-
 
 local function spawnFABCloud(x, y, z)
   local dx, dy, dz
@@ -1585,11 +1766,9 @@ local function spawnFABCloud(x, y, z)
   return fx("global_particle_airstrike_fuelairbomb", x, y, z)
 end
 
-
 local function fallTime(ord)
   return (ord.dist or 80) / math.max(1, math.abs(ord.vel or -90))
 end
-
 
 local function impactY(ord, groundY)
   local spawnY = groundY + (ord.height or 80)
@@ -1598,16 +1777,13 @@ local function impactY(ord, groundY)
   return math.max(detY, groundY - 2)
 end
 
-
 local function playFX(ord, bx, detY, bz)
   local fxType = ord.fx or "DEFAULT"
-
 
   local function defaultBlast()
     fx("Explosion (Bombing Run)", bx, detY, bz)
     fx("global_particle_exp_shockwave_ground", bx, detY, bz)
   end
-
 
   if fxType == "NUKE" then
     fx("global_particle_airstrike_tactnuke", bx, detY, bz)
@@ -1639,7 +1815,6 @@ local function playFX(ord, bx, detY, bz)
       fx("global_particle_exp_shockwave_ground", bx, fabY, bz)
     end)
 
-
   elseif fxType == "CLUSTER" then
     for i = 1, 6 do
       local a = (i - 1) * (2 * math.pi / 6)
@@ -1649,19 +1824,13 @@ local function playFX(ord, bx, detY, bz)
     end
 
     fx("global_particle_exp_shockwave_ground", bx, detY, bz)
-
-
   else
     defaultBlast()
   end
 end
-
-
 -- ============================================================
 -- ORDNANCE LIST
 -- ============================================================
-
-
 local ORDNANCE = {
   {
     label = "Gunship Shell",
@@ -1762,13 +1931,9 @@ local ORDNANCE = {
     fx = "NUKE",
   },
 }
-
-
 -- ============================================================
 -- STRIKE
 -- ============================================================
-
-
 local function strikeAt(ord, bx, by, bz, token)
   local ty = by + (ord.height or 80)
 
@@ -1813,7 +1978,6 @@ local function strikeAt(ord, bx, by, bz, token)
   return true
 end
 
-
 local function spawnAtTarget(ord, uTarget, token)
   local ok, x, y, z = pcall(function()
     if Object and type(Object.GetPosition) == "function" then
@@ -1832,13 +1996,9 @@ local function spawnAtTarget(ord, uTarget, token)
 
   return strikeAt(ord, x, y, z, token)
 end
-
-
 -- ============================================================
 -- DESIGNATOR
 -- ============================================================
-
-
 local function equipDesignator(ord)
   ORDD_TOKEN = ORDD_TOKEN + 1
   local token = ORDD_TOKEN
@@ -1915,6 +2075,29 @@ local function equipDesignator(ord)
       ORDD_TOKEN = ORDD_TOKEN + 1
     end
   end)
+end
+-- ============================================================
+-- MENU ENTRY
+-- ============================================================
+if menu and type(menu.category) == "function" then
+  menu:category("Ordnance Drops", function(cnt)
+    cnt:entry("Clear Designator", function()
+      ORDD_TOKEN = ORDD_TOKEN + 1
+      clearDesignator(ORDD_TOKEN)
+      inputBurst()
+      toast("Designator cleared")
+    end)
+
+    for i = 1, #ORDNANCE do
+      local ord = ORDNANCE[i]
+      cnt:entry(ord.label, function()
+        equipDesignator(ord)
+      end)
+    end
+  end)
+end
+
+-- --------------------------------------------------------------
 
 -- --- close button ------------------------------------------------------
 menu:entry("Close Menu", function(ctx) ctx:close() end)
