@@ -1495,13 +1495,21 @@ end)
 -- --------------------------------------------------------------
 -- ORDNANCE DROPS by Badga666
 local ORDD_TOKEN = 0
+
+
 local INPUT_SETTLE_TIME = 0.08
 local CLEAR_SETTLE_TIME = 0.12
 local DESIGNATOR_SETTLE_TIME = 0.25
-local FAB_HEIGHT_OFFSET = 5
+
+
+local FAB_HEIGHT_OFFSET = 0
 local FAB_CLOUD_ROLL_DEG = 0
+
+
 local scheduleSeq = 0
+-- ============================================================
 -- BASICS
+-- ============================================================
 local function log(msg)
   pcall(function()
     if Loader and Loader.Printf then
@@ -1565,14 +1573,18 @@ local function after(seconds, fn)
     if Ess and Ess.Loop and type(Ess.Loop.start) == "function" then
       scheduleSeq = scheduleSeq + 1
       local id = "Ordnance_" .. scheduleSeq
+
       Ess.Loop.start(id, seconds, function()
         run()
         return false
       end)
+
       return true
     end
+
     return false
   end)
+
   if not ok then
     run()
   end
@@ -1585,20 +1597,25 @@ local function localPlayer()
     end
     return nil
   end)
+
   if ok and p then
     return p
   end
+
   ok, p = pcall(function()
     if Ess and Ess.Player and type(Ess.Player.character) == "function" then
       return Ess.Player.character(0)
     end
     return nil
   end)
+
   if ok and p then
     return p
   end
+
   return nil
 end
+
 local function flushInput()
   pcall(function()
     if Ess and Ess.Input and type(Ess.Input.clear) == "function" then
@@ -1627,7 +1644,6 @@ local function inputBurst()
   end)
 end
 
-
 local function closeUI()
   pcall(function()
     if Player and type(Player.SetPDAMapMode) == "function" then
@@ -1650,7 +1666,6 @@ local function closeUI()
   flushInput()
 end
 
-
 local function clearDesignatorOnce()
   local p = localPlayer()
   if not p then
@@ -1662,7 +1677,6 @@ local function clearDesignatorOnce()
 
   flushInput()
 end
-
 
 local function clearDesignator(token)
   clearDesignatorOnce()
@@ -1680,7 +1694,6 @@ local function clearDesignator(token)
   end)
 end
 
-
 local function preloadLaser()
   pcall(function()
     if Pg and type(Pg.LoadAsset) == "function" then
@@ -1688,7 +1701,6 @@ local function preloadLaser()
     end
   end)
 end
-
 
 local function getViewYaw()
   local ok, y = pcall(function()
@@ -1718,13 +1730,9 @@ local function getViewYaw()
 
   return 0
 end
-
-
 -- ============================================================
 -- FX
 -- ============================================================
-
-
 local function fx(proto, x, y, z)
   if Ess and Ess.Easy and Ess.Easy.Spawn and type(Ess.Easy.Spawn.fx) == "function" then
     local ok = pcall(function()
@@ -1749,7 +1757,6 @@ local function fx(proto, x, y, z)
 
   return ok
 end
-
 
 local function spawnFABCloud(x, y, z)
   local dx, dy, dz
@@ -1798,11 +1805,9 @@ local function spawnFABCloud(x, y, z)
   return fx("global_particle_airstrike_fuelairbomb", x, y, z)
 end
 
-
 local function fallTime(ord)
   return (ord.dist or 80) / math.max(1, math.abs(ord.vel or -90))
 end
-
 
 local function impactY(ord, groundY)
   local spawnY = groundY + (ord.height or 80)
@@ -1811,16 +1816,13 @@ local function impactY(ord, groundY)
   return math.max(detY, groundY - 2)
 end
 
-
 local function playFX(ord, bx, detY, bz)
   local fxType = ord.fx or "DEFAULT"
-
 
   local function defaultBlast()
     fx("Explosion (Bombing Run)", bx, detY, bz)
     fx("global_particle_exp_shockwave_ground", bx, detY, bz)
   end
-
 
   if fxType == "NUKE" then
     fx("global_particle_airstrike_tactnuke", bx, detY, bz)
@@ -1852,7 +1854,6 @@ local function playFX(ord, bx, detY, bz)
       fx("global_particle_exp_shockwave_ground", bx, fabY, bz)
     end)
 
-
   elseif fxType == "CLUSTER" then
     for i = 1, 6 do
       local a = (i - 1) * (2 * math.pi / 6)
@@ -1862,19 +1863,13 @@ local function playFX(ord, bx, detY, bz)
     end
 
     fx("global_particle_exp_shockwave_ground", bx, detY, bz)
-
-
   else
     defaultBlast()
   end
 end
-
-
 -- ============================================================
 -- ORDNANCE LIST
 -- ============================================================
-
-
 local ORDNANCE = {
   {
     label = "Gunship Shell",
@@ -1975,13 +1970,9 @@ local ORDNANCE = {
     fx = "NUKE",
   },
 }
-
-
 -- ============================================================
 -- STRIKE
 -- ============================================================
-
-
 local function strikeAt(ord, bx, by, bz, token)
   local ty = by + (ord.height or 80)
 
@@ -2026,7 +2017,6 @@ local function strikeAt(ord, bx, by, bz, token)
   return true
 end
 
-
 local function spawnAtTarget(ord, uTarget, token)
   local ok, x, y, z = pcall(function()
     if Object and type(Object.GetPosition) == "function" then
@@ -2045,13 +2035,9 @@ local function spawnAtTarget(ord, uTarget, token)
 
   return strikeAt(ord, x, y, z, token)
 end
-
-
 -- ============================================================
 -- DESIGNATOR
 -- ============================================================
-
-
 local function equipDesignator(ord)
   ORDD_TOKEN = ORDD_TOKEN + 1
   local token = ORDD_TOKEN
@@ -2128,8 +2114,27 @@ local function equipDesignator(ord)
       ORDD_TOKEN = ORDD_TOKEN + 1
     end
   end)
+end
+-- ============================================================
+-- MENU ENTRY
+-- ============================================================
+if menu and type(menu.category) == "function" then
+  menu:category("Ordnance Drops", function(cnt)
+    cnt:entry("Clear Designator", function()
+      ORDD_TOKEN = ORDD_TOKEN + 1
+      clearDesignator(ORDD_TOKEN)
+      inputBurst()
+      toast("Designator cleared")
+    end)
 
-
+    for i = 1, #ORDNANCE do
+      local ord = ORDNANCE[i]
+      cnt:entry(ord.label, function()
+        equipDesignator(ord)
+      end)
+    end
+  end)
+end
 
 -- --------------------------------------------------------------
 
