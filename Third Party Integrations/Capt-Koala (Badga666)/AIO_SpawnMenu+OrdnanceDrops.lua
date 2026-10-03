@@ -1,4 +1,4 @@
-local KEYVAL = "f7"
+local KEYVAL = "f4"
 Ess.DEBUG = true
 local Ess = _G.Ess
 if not (Ess and Ess.UI and Ess.UI.Menu) then

@@ -1449,7 +1449,7 @@ menu:category("Supply Drops", function(ea)
         eaa:entry("Treasure (Blueprint) Supply Drop", function(ctx) ctx:spawn("Supply Drop (Treasure)", 5); ctx:hint("SPAWNED") end)
     end)
 end)
-
+-- --------------------------------------------------------------
 -- Paste menu:categories from other authors below this line
 -- --------------------------------------------------------------
 
