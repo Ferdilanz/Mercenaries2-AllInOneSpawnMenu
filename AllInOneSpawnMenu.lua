@@ -1,3 +1,13 @@
+local KEYVAL = "f4"
+Ess.DEBUG = true
+local Ess = _G.Ess
+if not (Ess and Ess.UI and Ess.UI.Menu) then
+    if Loader and Loader.Printf then Loader.Printf("[AiO Spawner] load the Essentials Framework/Ess-Lib (1_Ess.lua) first") end
+    return
+end
+
+local menu = Ess.UI.Menu{ title = "Ferdilanz' All-in-One SpawnMenu", key = KEYVAL }
+
 menu:category("Vehicles", function(aa)
         aa:category("Empty", function(aaa)
                 aaa:category("Allied Nations", function(aba)
