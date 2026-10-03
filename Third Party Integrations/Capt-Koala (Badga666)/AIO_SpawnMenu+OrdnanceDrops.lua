@@ -2080,7 +2080,7 @@ end
 -- MENU ENTRY
 -- ============================================================
 if menu and type(menu.category) == "function" then
-  menu:category("Ordnance Drops", function(cnt)
+  menu:category("Badga's Ordnance Drops", function(cnt)
     cnt:entry("Clear Designator", function()
       ORDD_TOKEN = ORDD_TOKEN + 1
       clearDesignator(ORDD_TOKEN)
