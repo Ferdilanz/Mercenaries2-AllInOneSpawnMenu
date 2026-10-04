@@ -6,7 +6,7 @@ if not (Ess and Ess.UI and Ess.UI.Menu) then
     return
 end
 
-local menu = Ess.UI.Menu{ title = "Ferdilanz' All-in-One SpawnMenu", key = KEYVAL }
+local menu = Ess.UI.Menu{ title = "Ferd's AiO SpawnMenu v0.85", key = KEYVAL }
 
 menu:category("Vehicles", function(aa)
         aa:category("Empty", function(aaa)
